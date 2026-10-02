@@ -1,4 +1,4 @@
-# genesis-mlflow: the `amsc-mlflow` agent skill
+# amsc-mlflow: an agent skill for the AmSC / Genesis Mission MLflow service
 
 An [Agent Skill](https://agentskills.io) for using the **American Science Cloud (AmSC) /
 Genesis Mission MLflow service** with the standard MLflow client:
@@ -41,8 +41,8 @@ tests/                            end-to-end tests against a local MLflow server
 Clone into your agent's skills directory, keeping only the skill directory:
 
 ```bash
-git clone https://github.com/ben-hawks/genesis-mlflow
-ln -s "$PWD/genesis-mlflow/skills/amsc-skills/amsc-mlflow" ~/.claude/skills/amsc-mlflow   # Claude Code
+git clone https://github.com/ben-hawks/amsc-mlflow
+ln -s "$PWD/amsc-mlflow/skills/amsc-skills/amsc-mlflow" ~/.claude/skills/amsc-mlflow   # Claude Code
 ```
 
 Python requirements: `mlflow>=3.13` (tested with 3.16.1). `train_with_mlflow.py` also

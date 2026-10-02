@@ -2,7 +2,7 @@
 
 **Skill:** `amsc-mlflow`
 
-**Author:** Ben Hawks. Developed in the `ben-hawks/genesis-mlflow` repository, laid out as
+**Author:** Ben Hawks. Developed in the `ben-hawks/amsc-mlflow` repository, laid out as
 `skills/amsc-skills/amsc-mlflow/` so it can be proposed to
 [AI-ModCon/genesis-skills](https://github.com/AI-ModCon/genesis-skills).
 
