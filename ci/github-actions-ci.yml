@@ -1,0 +1,36 @@
+# Move to .github/workflows/ci.yml to enable. (Committed here because the session that
+# created this repo could not push workflow files.)
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: python -m pip install -r requirements-dev.txt
+      - name: Tests (local MLflow server; no AmSC access)
+        env:
+          MLFLOW_DISABLE_AGENT_HINT: "1"
+        run: python -m pytest tests -q
+
+  genesis-skill-validator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch the genesis-skills validator (pinned)
+        run: |
+          git clone --filter=blob:none https://github.com/AI-ModCon/genesis-skills /tmp/genesis-skills
+          git -C /tmp/genesis-skills checkout b7e8434f3cd15a0c8cb6cb0313942cd4b1d06cee
+      - name: Validate the skill against every client profile
+        run: python /tmp/genesis-skills/tools/validate_skills.py --profile all --no-color --format github skills/amsc-skills/amsc-mlflow

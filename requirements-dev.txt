@@ -1,0 +1,5 @@
+mlflow==3.16.1
+pandas
+pytest
+# optional: the training-template test is skipped without torch
+# torch
